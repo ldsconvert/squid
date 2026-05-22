@@ -2,8 +2,8 @@ from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
-# ✅ FIXED ASCII ART (no syntax errors)
-SQUID_ART = r"""
+# ✅ SAFE ASCII ART (fixed quotes)
+SQUID_ART = r'''
         _.-""""-._
       .'  _     _ '.
      /   (_)   (_)  \
@@ -12,9 +12,9 @@ SQUID_ART = r"""
      \  '.`'---'`.' /
       '.  `'---'`  .'
         '-._____.-'
-"""
+'''
 
-# Simple game state (basic starter)
+# Simple game state
 pet = {
     "name": "Squishy",
     "hunger": 50,
@@ -34,36 +34,29 @@ HTML_TEMPLATE = """
             color: white;
         }
         pre {
-            font-size: 16px;
             color: #7fd0ff;
         }
-        .stats {
-            margin: 20px;
-        }
         button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
+            padding: 10px;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
 
-<h1>🐙 {{ name }}</h1>
+<h1>{{ name }}</h1>
 
 <pre>{{ art }}</pre>
 
-<div class="stats">
-    <p>Hunger: {{ hunger }}</p>
-    <p>Happiness: {{ happiness }}</p>
-</div>
+<p>Hunger: {{ hunger }}</p>
+<p>Happiness: {{ happiness }}</p>
 
-<form method="post" action="/feed">
-    <button type="submit">Feed</button>
+<form action="/feed" method="post">
+    <button>Feed</button>
 </form>
 
-<form method="post" action="/play">
-    <button type="submit">Play</button>
+<form action="/play" method="post">
+    <button>Play</button>
 </form>
 
 </body>
