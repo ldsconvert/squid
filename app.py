@@ -51,11 +51,11 @@ HTML_TEMPLATE = """
 <p>Hunger: {{ hunger }}</p>
 <p>Happiness: {{ happiness }}</p>
 
-<form action="/feed" method="post">
+/feed
     <button>Feed</button>
 </form>
 
-<form action="/play" method="post">
+/play
     <button>Play</button>
 </form>
 
